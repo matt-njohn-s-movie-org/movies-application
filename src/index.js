@@ -12,12 +12,13 @@ $("#loading").css("height", "100%", "width ", "100%");
 /**
  * require style imports
  */
-const {getMovies} = require('./api.js');
+const {getMovies, getMoreMovies} = require('./api.js');
 
 getMovies().then((movies) => {
 	console.log('Here are all the movies:');
 	movies.forEach(({title, rating, id}) => {
 		console.log(`id#${id} - ${title} - rating: ${rating}`);
+		$(".sub-container ").append(`<div class="mov-card" id=" ${id} "> <h3> Movie Title: ${title} </h3> <br> Movie Rating: ${rating} </div> `)
 	});
 }).then(() => {
 	$('#loading').addClass('invisible')
@@ -28,3 +29,7 @@ getMovies().then((movies) => {
 		alert('Oh no! Something went wrong.\nCheck the console for details.')
 		console.log(error);
 	});
+
+getMoreMovies().then((data) => {
+	console.log(data);
+})
