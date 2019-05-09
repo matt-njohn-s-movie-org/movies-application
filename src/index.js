@@ -26,7 +26,7 @@ getMovies().then((movies) => {
 	$('.container').removeClass('invisible')
 } )
 	.catch((error) => {
-		alert('Oh no! Something went wrong.\nCheck the console for details.')
+		alert('Oh no! Something went wrong.\nCheck the console for details.');
 		console.log(error);
 	});
 
@@ -37,3 +37,20 @@ getMoreMovies().then((data) => {
 // function that when you press a button it will load the data from Title input form and Rating
 // number and parse it to db.json, and dynamically create entry at the same time.
 
+//JQuery
+
+//On submit logs the rating and movie title
+//takes the value of the star and movie title and puts it into an object
+$(document).ready(function() {
+	$('#mov-submit').click(function(five) {
+		$('input').ready(function () {
+			console.log(five.currentTarget.value);
+
+			const movieInput = (movie) => {
+
+			};
+		});
+	});
+
+
+});
