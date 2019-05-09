@@ -44,11 +44,13 @@ getMoreMovies().then((data) => {
 $(document).ready(function() {
 	$('#mov-submit').click(function(five) {
 		$('input').ready(function () {
-			console.log(five.currentTarget.value);
+			// get input values and place them in variables.
+			const movTitle = $("#mov-title").val();
+			//console.log(movTitle);
+			const rating = $(".radInput:checked").val();
+			//console.log(rating);
 
-			const movieInput = (movie) => {
 
-			};
 		});
 	});
 
