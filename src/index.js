@@ -3,6 +3,7 @@
  */
 import sayHello from './hello';
 import $ from 'jquery';
+
 sayHello('World');
 
 // on load we want a load screen to appaer
@@ -22,9 +23,9 @@ getMovies().then((movies) => {
 	});
 }).then(() => {
 	$('#loading').addClass('invisible')
-}).then(()=>{
+}).then(() => {
 	$('.container').removeClass('invisible')
-} )
+})
 	.catch((error) => {
 		alert('Oh no! Something went wrong.\nCheck the console for details.');
 		console.log(error);
@@ -41,15 +42,44 @@ getMoreMovies().then((data) => {
 
 //On submit logs the rating and movie title
 //takes the value of the star and movie title and puts it into an object
-$(document).ready(function() {
-	$('#mov-submit').click(function(five) {
+$(document).ready(function () {
+	$('#mov-submit').click(function (five) {
 		$('input').ready(function () {
 			// get input values and place them in variables.
 			const movTitle = $("#mov-title").val();
-			//console.log(movTitle);
+			console.log(movTitle);
 			const rating = $(".radInput:checked").val();
-			//console.log(rating);
+			console.log(rating);
 
+			const movieLength = getMovies().then(movie => {
+
+				console.log(`id : ${movie.length}`);
+				return `id : ${movie.length}`
+			}).then(movID => {
+				// const objMovTitle = `"title" : ${movTitle}`;
+				// const objRating = `"rating" : ${rating}`;
+				// console.log(`${objMovTitle} ${objRating}`);
+				const options = {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({
+						"title": movTitle,
+						"rating": rating
+					})
+				};
+				fetch(`/api/movies`, options).then((data) => {
+					console.log(`new data id#${movID} - ${movTitle} - rating: ${rating}`);
+
+
+					//$(".sub-container ").append(`<div class="mov-card" id=" ${movID} "> <h3>
+					// Movie Title: ${movTitle} </h3> <br> Movie Rating: ${rating} </div> `)
+				})
+			})
+
+
+			//const movPost = { "title" : movTitle , "rating"}
 
 		});
 	});
