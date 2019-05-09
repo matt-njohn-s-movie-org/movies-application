@@ -19,7 +19,8 @@ getMovies().then((movies) => {
 	console.log('Here are all the movies:');
 	movies.forEach(({title, rating, id}) => {
 		console.log(`id#${id} - ${title} - rating: ${rating}`);
-		$(".sub-container ").append(`<div class="mov-card" id=" ${id} "> <h3> Movie Title: ${title} </h3> <br> Movie Rating: ${rating} </div> `)
+		$(".sub-container ").append(`<div class="mov-card" id=" ${id} "> <h3> Movie Title: ${title} </h3> <br> Movie Rating: ${rating} <br> 
+   	    <button type="button" class="deleteButton" id="${id}" name="${title}">Delete Movie</button>	</div> `)
 	});
 }).then(() => {
 	$('#loading').addClass('invisible')
@@ -47,18 +48,17 @@ $(document).ready(function () {
 		$('input').ready(function () {
 			// get input values and place them in variables.
 			const movTitle = $("#mov-title").val();
-			console.log(movTitle);
+			//console.log(movTitle);
 			const rating = $(".radInput:checked").val();
-			console.log(rating);
+			//console.log(rating);
 
 			const movieLength = getMovies().then(movie => {
+				//console.log(`this is the data being passed ${movie}`);
 
-				console.log(`id : ${movie.length}`);
+				//console.log(`id : ${movie.length}`);
 				return `id : ${movie.length}`
 			}).then(movID => {
-				// const objMovTitle = `"title" : ${movTitle}`;
-				// const objRating = `"rating" : ${rating}`;
-				// console.log(`${objMovTitle} ${objRating}`);
+
 				const options = {
 					method: 'POST',
 					headers: {
@@ -70,9 +70,11 @@ $(document).ready(function () {
 					})
 				};
 				fetch(`/api/movies`, options).then((data) => {
-					console.log(`new data id#${movID} - ${movTitle} - rating: ${rating}`);
+					//console.log(`new data id#${movID} - ${movTitle} - rating: ${rating}`);
 
-
+					$(".sub-container").append(`<div class = "mov-card" id="${movID}"> <h3> Movie 
+					Title: ${movTitle}</h3> <br> Movie Rating: ${rating} <br>  
+					<button type="button" id="${movID}" class="deleteButton" >Delete Movie</button> </div>`)
 					//$(".sub-container ").append(`<div class="mov-card" id=" ${movID} "> <h3>
 					// Movie Title: ${movTitle} </h3> <br> Movie Rating: ${rating} </div> `)
 				})
@@ -82,7 +84,25 @@ $(document).ready(function () {
 			//const movPost = { "title" : movTitle , "rating"}
 
 		});
+
 	});
 
 
+});
+
+
+$(document).on("click", ".deleteButton", data => {
+	console.log(data.target.name);
+	const movName = data.target.name;
+	const movID = data.target.id;
+	console.log(movID);
+	const options = {
+		method: 'DELETE',
+		success: function (result) {
+			// Do something with the result
+			console.log(`${movName} has been deleted`);
+			location.reload();
+		}
+	};
+	fetch(`/api/movies/${movID}`, options).then(data=>{console.log(data.json())})
 });
