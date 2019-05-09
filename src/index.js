@@ -7,8 +7,9 @@ import $ from 'jquery';
 sayHello('World');
 
 // on load we want a load screen to appaer
-$("body").append("<div id='loading'><h1> PAGE LOADING</h1></div>");
-$("#loading").css("height", "100%", "width ", "100%");
+$("body").append(" <div class=\"sk-folding-cube\">");//<div id='loading'><h1> PAGE LOADING</h1></div>
+$("#loading").css("height", "100%", "width ", "100%",)
+	;
 
 /**
  * require style imports
