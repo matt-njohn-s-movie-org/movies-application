@@ -14,10 +14,23 @@
         </div>
         <hr>
         
-        <div class="mov-form-container">
+        <div class="mov-form-container" style="border: solid black 1px">
             <form action="" class="search-form">
-                <input type="text" id="mov-search-input">
-                <button type="button" id="search-button">SEARCH</button>
+                <h2>Want to enter your own movie?</h2>
+
+                <div class="input_container">
+                    <h3>Movie title</h3>
+                    <input id="mov-title" type="text">
+                    <h3>Movie Rating 1-5</h3>
+                    <input id="1-star" type="radio" name="starRating" value="1"> 1 star
+                    <input id="2-stars" type="radio" name="starRating"value="2">2 stars
+                    <input id="3-stars" type="radio" name="starRating"value="3">3 stars
+                    <input id="4-stars" type="radio" name="starRating"value="4">4 stars
+                    <input id="5-stars" type="radio" name="starRating"value="5">5 stars
+                    <div class="button">
+                        <button type="button" id="mov-submit">Submit Movie</button>
+                    </div>
+                </div>
             </form>
         </div>
         

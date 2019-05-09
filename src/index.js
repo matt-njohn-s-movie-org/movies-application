@@ -32,4 +32,8 @@ getMovies().then((movies) => {
 
 getMoreMovies().then((data) => {
 	console.log(data);
-})
+});
+
+// function that when you press a button it will load the data from Title input form and Rating
+// number and parse it to db.json, and dynamically create entry at the same time.
+
