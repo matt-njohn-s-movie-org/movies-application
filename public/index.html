@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <title>My Application</title>
-    <link rel="stylesheet" href="/style.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/style.css"/>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+          crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+            integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+            crossorigin="anonymous"></script>
 </head>
 <body>
 <!--==================================================================-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand color" href="#">Home</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -21,75 +28,84 @@
                 <a class="nav-link color" href="#">Movies <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link color" href="#">Theaters <span class="sr-only">(current)</span></a>
+                <a class="nav-link color" href="#">Theaters <span
+                        class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link color" href="#">Discounts  <span class="sr-only">(current)</span></a>
+                <a class="nav-link color" href="#">Discounts <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link color disabled" href="#">Upcoming Locations</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search Zip Code" aria-label="Search">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search Zip Code"
+                   aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
     </div>
 </nav>
 <!--==================================================================-->
 
-    <div class="container invisible">
-        <div class="sub-container">
-        <h1>Hello There!</h1>
-        <p>Of all the movie apps in the world, you go and choose this one...<code>Said no one ever</code>.</p><!--src/index.js-->
-        </div>
-        <hr>
-        
-        <div class="mov-form-container" style="border: solid black 1px">
-            <form action="" class="search-form">
-                <h2>Want to enter your own movie?</h2>
+<div class="container invisible">
+    <div class="container">
+    <div class="sub-container row p-3 container">
+        <div class="row m-auto">
+        <div class="m-auto"><h1>Welcome to our Codeup Movie app!</h1></div>
 
-                <div class="input_container">
-                    <h3>Movie title</h3>
-                    <input id="mov-title" type="text">
-                    <h3>Movie Rating 1-5</h3>
-                    <input id="1-star" type="radio" name="starRating"  class = "radInput"
-                           value="1"> 1
-                    star
-                    <input id="2-stars" type="radio" name="starRating" class = "radInput"
-                           value="2">2
-                    stars
-                    <input id="3-stars" type="radio" name="starRating" class = "radInput"
-                           value="3">3
-                    stars
-                    <input id="4-stars" type="radio" name="starRating" class = "radInput"
-                           value="4">4
-                    stars
-                    <input id="5-stars" type="radio" name="starRating" class = "radInput"
-                           value="5">5
-                    stars
-                    <div class="button">
-                        <button type="button" id="mov-submit">Submit Movie</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-        
+        <p class="m-auto">Of all the movie apps in the world, you go and choose this
+            one...<code>Said no one
+                ever</code>.</p> <!--src/index.js-->
     </div>
-    <div>
-        <h1 data-text="It's loading…"></h1>
+    </div>
+</div>
+<hr>
 
+<div class="mov-form-container" style="border: solid black 1px">
+    <form action="" class="search-form">
+        <h2>Want to enter your own movie?</h2>
 
-        <!--
-        <div class="sk-folding-cube">
-
-            <div class="sk-cube1 sk-cube"></div>
-            <div class="sk-cube2 sk-cube"></div>
-            <div class="sk-cube4 sk-cube"></div>
-            <div class="sk-cube3 sk-cube"></div>
+        <div class="input_container">
+            <h3>Movie title</h3>
+            <input id="mov-title" type="text">
+            <h3>Movie Rating 1-5</h3>
+            <input id="1-star" type="radio" name="starRating" class="radInput"
+                   value="1"> 1
+            star
+            <input id="2-stars" type="radio" name="starRating" class="radInput"
+                   value="2">2
+            stars
+            <input id="3-stars" type="radio" name="starRating" class="radInput"
+                   value="3">3
+            stars
+            <input id="4-stars" type="radio" name="starRating" class="radInput"
+                   value="4">4
+            stars
+            <input id="5-stars" type="radio" name="starRating" class="radInput"
+                   value="5">5
+            stars
+            <div class="button">
+                <button type="button" id="mov-submit">Submit Movie</button>
+            </div>
         </div>
+    </form>
+</div>
+
+</div>
+<div>
+    <h1 data-text="It's loading…" class="loadScreen" id="loading"></h1>
+
+
+    <!--
+    <div class="sk-folding-cube">
+
+        <div class="sk-cube1 sk-cube"></div>
+        <div class="sk-cube2 sk-cube"></div>
+        <div class="sk-cube4 sk-cube"></div>
+        <div class="sk-cube3 sk-cube"></div>
+    </div>
 -->
-    </div>
-    <script src="./main.js"></script>
+</div>
+<script src="./main.js"></script>
 </body>
 </html>

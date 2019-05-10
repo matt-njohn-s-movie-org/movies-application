@@ -9,6 +9,13 @@
       "title": "Star Wars: A New Hope",
       "rating": "5",
       "id": 2
+    },
+    {
+      "title": "Die Hard",
+      "rating": "666",
+      "id": 3,
+      "genre": "badas Movies"
     }
+
   ]
 }

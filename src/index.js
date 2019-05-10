@@ -20,8 +20,10 @@ getMovies().then((movies) => {
 	console.log('Here are all the movies:');
 	movies.forEach(({title, rating, id}) => {
 		console.log(`id#${id} - ${title} - rating: ${rating}`);
-		$(".sub-container ").append(`<div class="mov-card" id=" ${id} "> <h3> Movie Title: ${title} </h3> <br> Movie Rating: ${rating} <br> 
-   	    <button type="button" class="deleteButton" id="${id}" name="${title}">Delete Movie</button>	</div> `)
+		$(".sub-container ").append(`<div class="mov-card col-4 p-3 card m-auto" id=" ${id} "> <h3> Movie Title: ${title} </h3> <br> Movie Rating: ${rating} <br> 
+   	    <button type="button" class="deleteButton" id="${id}" name="${title}">Delete Movie</button>	
+   	    <button type="button" class="editButton" id="${id}" name="${title}">Edit Movie</button>
+   	    </div> `)
 	});
 }).then(() => {
 	$('#loading').addClass('invisible')
@@ -73,7 +75,7 @@ $(document).ready(function () {
 				fetch(`/api/movies`, options).then((data) => {
 					//console.log(`new data id#${movID} - ${movTitle} - rating: ${rating}`);
 
-					$(".sub-container").append(`<div class = "mov-card" id="${movID}"> <h3> Movie 
+					$(".sub-container").append(`<div class="mov-card col-4 p-3 card m-auto" id="${movID}"> <h3> Movie 
 					Title: ${movTitle}</h3> <br> Movie Rating: ${rating} <br>  
 					<button type="button" id="${movID}" class="deleteButton" >Delete Movie</button> </div>`)
 					//$(".sub-container ").append(`<div class="mov-card" id=" ${movID} "> <h3>
@@ -108,3 +110,32 @@ $(document).on("click", ".deleteButton", data => {
 	fetch(`/api/movies/${movID}`, options).then(data=>{console.log(data.json())})
 });
 
+
+$(document).on("click", ".editButton", data => {
+	console.log(data.target.name);
+	const movName = data.target.name; // finding the movie in json that we are editing
+	const movID = data.target.id; // obtaining id of said movie
+	let title = prompt( "Edit title:"); // allowing user to input data to edit
+	let rating = prompt("Edit Rating"); // allowing user to input data to edit
+	let genre = prompt ("Edit Genre"); // allowing user to input data to edit
+	//if (edTitle == null || edTitle == "") { return;} else {edTitle = ` "title" :
+	// ${edTitle}`}// formatting strings to add to object
+	//if (edRating == null || edRating == "") { return;} else { edRating = ` "rating" :
+	// ${edRating} `}// formatting strings to add to object
+	//if (edGenre == null || edGenre == "") { return;} else { edGenre = `"genre" :
+	// ${edGenre}`}// formatting strings to add to object
+		//console.log(movID);
+	const options = {
+		method: 'PATCH',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify({
+			title,
+			rating,
+			genre
+
+		})
+	};
+	fetch(`/api/movies/${movID}`, options).then(data=>{console.log(data.json())})
+});
