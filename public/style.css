@@ -1,14 +1,9 @@
 html, body {
     height: 100%;
 }
-body{
-
-}
 
 div#loading {
     text-align:center;
-
-
 }
 
 .container {
@@ -22,6 +17,43 @@ div#loading {
 }
 
 
+
+body {
+    background: lightgray;
+    font-family: sans-serif;
+}
+h1 {
+    position: relative;
+    text-align: center;
+    /*color: rgba(0, 0, 0, .3);*/
+   /* font-size: 5em */
+}
+h1:before {
+    content: attr(data-text);
+    position: absolute;
+    overflow: hidden;
+    max-width: 7em;
+    white-space: nowrap;
+    color: #0000ff;
+    animation: loading 8s linear;
+}
+@keyframes loading {
+    0% {
+        max-width: 0;
+    }
+}
+div.mov-card{
+    border: 1px;
+    border-style: solid;
+
+}
+.color:hover
+{
+    background:lightgrey;
+}
+
+
+/*
 .sk-folding-cube {
     margin: 20px auto;
     width: 40px;

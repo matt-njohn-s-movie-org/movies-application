@@ -6,8 +6,8 @@ import $ from 'jquery';
 
 sayHello('World');
 
-// on load we want a load screen to appaer
-$("body").append(" <div class=\"sk-folding-cube\">");//<div id='loading'><h1> PAGE LOADING</h1></div>
+// on load we want a load screen to appear
+$("body").append(`<div <h1 data-text=\"It's loading…\"></h1>`);// <div class="sk-folding-cube">/<div id='loading'><h1> PAGE LOADING</h1></div>
 $("#loading").css("height", "100%", "width ", "100%",)
 	;
 
@@ -107,3 +107,4 @@ $(document).on("click", ".deleteButton", data => {
 	};
 	fetch(`/api/movies/${movID}`, options).then(data=>{console.log(data.json())})
 });
+
